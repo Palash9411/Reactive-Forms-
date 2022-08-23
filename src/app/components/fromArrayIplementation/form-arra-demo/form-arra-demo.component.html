@@ -20,7 +20,7 @@
                     <input matInput type="text" id="skill" formControlName="exp"/>
                 </mat-form-field>
                 
-         
+                
                 <button mat-raised-button color="primary" (click)="removeSkill(i)">Remove</button>
             </div>
         </div>
@@ -28,6 +28,12 @@
       <p>
         <button mat-raised-button color="primary" type="button" (click)="addSkills()">Add Skill</button>
       </p>
+      <mat-form-field class="example-full-width"  appearance="fill">
+        <input matInput type="text" id="password" formControlName="password"/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width"  appearance="fill">
+        <input matInput type="text" id="confirm" formControlName="confirm"/>
+    </mat-form-field>
     <p>
       <button mat-raised-button color="primary" type="submit">Submit</button>
     </p>

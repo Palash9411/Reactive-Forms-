@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-arra-demo',
@@ -15,8 +15,10 @@ export class FormArraDemoComponent implements OnInit {
 
     this.skillForm = this.fb.group({
       name : '' , 
-      skills : this.fb.array([]) 
-    })
+      skills : this.fb.array([this.fb.group({skill:'Angular',exp : '2' })]) ,
+      password: ["", [Validators.required, Validators.minLength(5)]],
+      confirm: ["", [Validators.required]]
+    }, { validator: this.matchPassword2('password', 'confirm') })
   }
 
  
@@ -32,6 +34,19 @@ export class FormArraDemoComponent implements OnInit {
     })
   }
 
+  matchPassword2(firstControl: string , secondControl: string): ValidatorFn {
+   
+      return (control: AbstractControl): ValidationErrors | null => {
+      
+        const password = control.get(firstControl)?.value;
+        const confirm = control.get(secondControl)?.value;
+  
+        if (password != confirm) { return { 'noMatch': true } }
+   
+        return null
+   
+      }
+    }
 addSkills() {
    this.skills.push(this.newSkill());
 }
@@ -42,7 +57,8 @@ removeSkill(i:number) {
   this.skills.removeAt(i);
 }
 onSubmit() {
-  console.log(this.skillForm.value);
+  console.log(this.skillForm);
+  console.log(this.skillForm.errors,this.skillForm.valid,this.skillForm.errors?.['noMatch'])
 }
  
 }
