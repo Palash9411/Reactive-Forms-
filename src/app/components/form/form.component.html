@@ -1,4 +1,4 @@
-<div [formGroup]="form" class="example-form" (ngSubmit)="onSubmit()">
+<form [formGroup]="form" class="example-form" (ngSubmit)="onSubmit()">
     <mat-form-field class="example-form-field" appearance="fill">
         <!-- <mat-label>Clearable input</mat-label> -->
         <input matInput type="text" formControlName="title" placeholder="Course title">
@@ -12,7 +12,7 @@
     <!-- <input type="checkbox" placeholder="Free course" formControlName="free"> -->
     <mat-checkbox   class="example-margin example-full-width" formControlName="free" ></mat-checkbox>
     <mat-form-field  class="example-full-width" appearance="fill">
-        <textarea style="resize: none;" matInput placeholder="Description" formControlName="longDescription">
+     <textarea style="resize: none;" matInput placeholder="Description" formControlName="longDescription">
 
         </textarea>
 
@@ -22,7 +22,7 @@
    
       <app-choose-quantity [increment]="10" formControlName="totalQuantity"></app-choose-quantity>
     
-  
+      <button mat-button type="submit">Basic</button>
       
-</div>
+  </form>
 

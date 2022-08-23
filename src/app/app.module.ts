@@ -10,12 +10,15 @@ import { FormComponent } from './components/form/form.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
-import { ChooseQuantityComponent } from './components/controlValueAccesor/choose-quantity/choose-quantity.component'
+import {MatButtonModule} from '@angular/material/button';
+import { ChooseQuantityComponent } from './components/controlValueAccesor/choose-quantity/choose-quantity.component';
+import { FormArraDemoComponent } from './components/fromArrayIplementation/form-arra-demo/form-arra-demo.component'
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    ChooseQuantityComponent
+    ChooseQuantityComponent,
+    FormArraDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { ChooseQuantityComponent } from './components/controlValueAccesor/choose
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

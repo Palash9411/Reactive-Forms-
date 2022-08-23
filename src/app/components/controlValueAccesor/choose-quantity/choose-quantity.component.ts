@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-choose-quantity',
@@ -18,7 +18,7 @@ import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR
     }
   ]
 })
-export class ChooseQuantityComponent implements OnInit , ControlValueAccessor{
+export class ChooseQuantityComponent implements OnInit , ControlValueAccessor , Validator{
 
   constructor() { }
   quantity = 0;
@@ -78,6 +78,6 @@ export class ChooseQuantityComponent implements OnInit , ControlValueAccessor{
         }
       };
     }
-    return null ;
+    return null
   }
 }

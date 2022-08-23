@@ -18,8 +18,7 @@ export class FormComponent implements OnInit {
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    debugger
-    console.warn(this.form.value);
+    console.log(this.form.value);
   }
 
 
